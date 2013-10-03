@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+import sys
+import json
+import requests
+
+def make_request(text, keys):
+    url = ('http://fanyi.youdao.com/openapi.do?' +\
+            'keyfrom={}&key={}&' +\
+            'type=data&doctype=json&version=1.1&' +\
+            'q={}').format(keys[0], keys[1], text)
+    resp = requests.post(url).text
+    #print('url: ' + url)
+    #print('response: ' + resp)
+    jsobj = json.loads(resp)
+    translations = jsobj['translation']
+    _basic = jsobj['basic'] if 'basic' in jsobj else None
+    phonetic = _basic['phonetic'] if _basic and 'phonetic' in _basic else None
+    explains = _basic['explains'] if _basic and 'explains' in _basic else []
+    print('----------------')
+    all_translations = set(translations + explains)
+    for tran in all_translations:
+        print('  {}'.format(tran))
+    if phonetic:
+        print('  |{}|'.format(phonetic))
+    _webs = jsobj['web'] if 'web' in jsobj else None
+    if _webs:
+        print('e.g.')
+        for _web in _webs:
+            key = _web['key']
+            values = _web['value']
+            print('  {0: ^20} : {1}'.format(key, '; '.join(values)))
+    print('----------------')
+
+def get_config():
+    with open('~/.dict_config', 'r') as file_handler:
+        data = file_handler.read().split('\n')
+        return data
+
+def main():
+    if len(sys.argv) < 2:
+        print('usage: dict [text]')
+        exit(1)
+    text = sys.argv[1]
+    make_request(text, get_config())
+
+main()
+
