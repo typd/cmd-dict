@@ -25,12 +25,21 @@ def make_request(text, keys):
         print('  |{}|'.format(phonetic))
     _webs = jsobj['web'] if 'web' in jsobj else None
     if _webs:
+        padding_space = ' ' if is_eng_text(text) else '　'
         print('e.g.')
+        max_length = max(len(_web['key']) for _web in _webs)
         for _web in _webs:
             key = _web['key']
             values = _web['value']
-            print('  {0: ^20} : {1}'.format(key, '; '.join(values)))
+            print('  {0:{1}<{2}} : {3}'.format(key, padding_space, max_length, '; '.join(values)))
     print('----------------')
+
+def is_eng_text(text):
+    eng_letters = 0
+    for ch in text.lower():
+        if ch >= 'a' and ch <= 'z':
+            eng_letters += 1
+    return eng_letters > 0.8 * len(text)
 
 def get_config():
     with open(expanduser('~/.dict_config'), 'r') as file_handler:
