@@ -21,25 +21,26 @@ install
 
 ## usage
 
-    dict 'hello world'
+    >> dict 'hello world'
     ----------------
       你好世界
     e.g.
-          hello world      : 你好世界; 举个例子; 开始
-         Hello   World     : 会写的人多了去了
-       Hello Kitty World   : 凯蒂猫气球世界
+      hello world       : 你好世界; 举个例子; 开始
+      Hello   World     : 会写的人多了去了
+      Hello Kitty World : 凯蒂猫气球世界
     ----------------
 
-    dict 数据接口
+    >> dict 数据接口
     ----------------
-      Data interface
       [计] data interface
+      Data interface
       |shù jù jiē kǒu|
     e.g.
-              数据接口         : data interface; DATAPORTI; USB
-            光纤分布数据接口       : FDDI; fiber distributed data interface; FDD
-             光波数据接口        : LDI LightwaveDataInterface
+      数据接口　　　　 : data interface; DATAPORTI; USB
+      光纤分布数据接口 : FDDI; fiber distributed data interface; FDD
+      光波数据接口　　 : LDI LightwaveDataInterface
     ----------------
+
 
 ## note
 
