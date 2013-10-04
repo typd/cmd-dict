@@ -32,7 +32,7 @@ def make_request(text, keys):
             key = _web['key']
             values = _web['value']
             print('  {0:{1}<{2}} : {3}'.format(key, padding_space, max_length, '; '.join(values)))
-    print('----------------')
+    print('--------------------------------')
 
 def is_eng_text(text):
     eng_letters = 0
@@ -46,12 +46,22 @@ def get_config():
         data = file_handler.read().split('\n')
         return data
 
+def is_bye_word(text):
+    return text == 'bye' or text == 'exit'
+
 def main():
-    if len(sys.argv) < 2:
-        print('usage: dict [text]')
-        exit(1)
-    text = sys.argv[1]
-    make_request(text, get_config())
+    if len(sys.argv) == 1:
+        # enter shell mode
+        print('--------------------------------')
+        text = input('Look up: ')
+        while not is_bye_word(text):
+            make_request(text, get_config())
+            print()
+            print('--------------------------------')
+            text = input('Look up: ')
+    else:
+        text = sys.argv[1]
+        make_request(text, get_config())
 
 main()
 
