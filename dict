@@ -5,6 +5,9 @@ import json
 import requests
 
 def make_request(text, keys):
+    text = text.strip()
+    if text == '':
+        return
     url = ('http://fanyi.youdao.com/openapi.do?' +\
             'keyfrom={}&key={}&' +\
             'type=data&doctype=json&version=1.1&' +\
