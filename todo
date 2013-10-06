@@ -1,0 +1,19 @@
+below are resources for offline translation, which is not implemented yet
+  stardict data file parsing
+    https://github.com/pysuxing/python-stardict/blob/master/stardict.py
+
+  stardict dict files
+    http://abloz.com/huzheng/stardict-dic/
+
+  cedict file
+    http://www.mdbg.net/chindict/chindict.php?page=cc-cedict
+
+  cedict parser
+    https://github.com/zkoch/CEDICT_Parser
+
+  a lexical database for English
+    english => english
+    http://wordnet.princeton.edu/
+
+  dict.org provides useful links
+    http://www.dict.org/w/databases/start
