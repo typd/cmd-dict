@@ -6,7 +6,7 @@ command line dictionary for Chinese &lt;=> English
 
 pre-requirements
 
-- python3; it'a better python than python2
+- python3; it's a better python than python2
 
 - pip3 install -r requirements.txt; 'pip3' is your python3 pip
 
