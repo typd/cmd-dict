@@ -14,7 +14,8 @@ pre-requirements
 
 install
 
-    cp dict /usr/local/bin/dict
+    git clone https://github.com/typd/cmd-dict.git
+    cp cmd-dict/dict /usr/local/bin/dict
     echo [key-from] >> ~/.dict_config
     echo [key] >> ~/.dict_config
 
